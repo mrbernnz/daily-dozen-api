@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171025224147) do
+ActiveRecord::Schema.define(version: 20171024201429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,4 +22,17 @@ ActiveRecord::Schema.define(version: 20171025224147) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "workouts", force: :cascade do |t|
+    t.bigint "athlete_id"
+    t.string "workout_name"
+    t.date "date"
+    t.time "start_time"
+    t.time "end_time"
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["athlete_id"], name: "index_workouts_on_athlete_id"
+  end
+
+  add_foreign_key "workouts", "athletes"
 end
