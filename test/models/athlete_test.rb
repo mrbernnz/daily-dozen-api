@@ -18,7 +18,7 @@ class AthleteTest < ActiveSupport::TestCase
     @athlete.first_name = nil
     @athlete.last_name = nil
 
-    refute_nil @athlete.valid?
+    refute_nil @athlete.first_name?
     assert_not_nil @athlete.errors[:first_name]
     assert_not_nil @athlete.errors[:last_name]
   end

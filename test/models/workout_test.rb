@@ -8,4 +8,9 @@ class WorkoutTest < ActiveSupport::TestCase
   test 'workout created' do
     assert @workout.new_record?
   end
+
+  test 'a valid workout' do
+    assert_equal @workout.workout_name, 'Chest and Biceps'
+    assert_equal @workout.notes, 'Great workout today!'
+  end
 end

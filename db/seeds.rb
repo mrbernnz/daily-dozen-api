@@ -6,6 +6,7 @@ athlete = Athlete.create!(
 )
 
 WORKOUTS = ['Chest and Biceps', 'Back and Triceps', 'Legs and Shoulders']
+EXERCISES = ['INCLINE DUMBBELL PRESS', 'INCLINE DUMBBELL FLY', 'DUMBBELL BENCH PRESS', 'CABLE FLY INTO CABLE PRESS', 'DECLINE PUSH-UP', 'ALTERNATING DUMBBELL CURL  INTO DUMBBELL CURL', 'STANDING DOUBLE BICEPS CABLE CURL', 'REVERSE CURL']
 
 WORKOUTS.each do |workout|
   athlete.workouts.create(
@@ -15,4 +16,21 @@ WORKOUTS.each do |workout|
     end_time: Faker::Time.between(5.minutes.ago, DateTime.now),
     notes: Faker::Lorem.sentence(4)
   )
+end
+
+EXERCISES.each do |name|
+  Workout.find_each do |workout|
+    workout.exercises.create(
+      exercise_name: name
+    )
+  end
+
+  Exercise.find_each do |exercise|
+    exercise.exercise_sets.create(
+      number: 1,
+      weight: 135,
+      unit: 'lb',
+      rep: 1
+    )
+  end
 end

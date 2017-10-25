@@ -25,6 +25,23 @@ ActiveRecord::Schema.define(version: 20171118024611) do
     t.string "token"
   end
 
+  create_table "exercises", force: :cascade do |t|
+    t.bigint "workout_id"
+    t.string "exercise_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["workout_id"], name: "index_exercises_on_workout_id"
+  end
+
+  create_table "sets", force: :cascade do |t|
+    t.bigint "exercise_id"
+    t.integer "number"
+    t.integer "weight"
+    t.string "unit"
+    t.integer "rep"
+    t.index ["exercise_id"], name: "index_sets_on_exercise_id"
+  end
+
   create_table "workouts", force: :cascade do |t|
     t.bigint "athlete_id"
     t.string "workout_name", null: false
@@ -37,5 +54,7 @@ ActiveRecord::Schema.define(version: 20171118024611) do
     t.index ["athlete_id"], name: "index_workouts_on_athlete_id"
   end
 
+  add_foreign_key "exercises", "workouts"
+  add_foreign_key "sets", "exercises"
   add_foreign_key "workouts", "athletes"
 end

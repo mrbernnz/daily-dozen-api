@@ -3,11 +3,7 @@ Types::QueryType = GraphQL::ObjectType.define do
   description "The root of all queries"
 
   field :athletes, types[Types::AthleteType] do
-    resolve ->(obj, args, ctx) {
-      raise "Unauthorized" unless ctx[:current_user]
-
-      Athlete.all
-    }
+    resolve ->(obj, args, ctx) { Athlete.all }
   end
 
   field :athlete, Types::AthleteType do

@@ -25,4 +25,15 @@ FactoryBot.define do
     notes 'Great workout today!'
     athlete
   end
+
+  factory :exercise do
+    exercise_name 'Bench Press'
+  end
+
+  factory :exercise_set do
+    number 1
+    weight 135
+    unit 'lb'
+    rep 1
+  end
 end

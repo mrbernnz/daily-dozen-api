@@ -27,7 +27,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring', '~> 2.0', '>= 2.0.2'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'pry'
+  gem 'pry-rails', '~> 0.3.6'
   gem 'guard', '~> 2.14', '>= 2.14.1'
   gem 'guard-rails', require: false
   gem 'guard-minitest', '~> 2.4', '>= 2.4.6'
