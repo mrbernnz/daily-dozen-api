@@ -17,16 +17,20 @@ gem 'puma', '~> 3.7'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'guard'
-  gem 'guard-rails', require: false
+  gem 'faker', '~> 1.8', '>= 1.8.4'
+  gem 'minitest-reporters', '~> 1.1', '>= 1.1.18'
+  gem 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
 end
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'spring'
+  gem 'spring', '~> 2.0', '>= 2.0.2'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry'
   gem 'faker', '~> 1.8', '>= 1.8.4'
+  gem 'guard', '~> 2.14', '>= 2.14.1'
+  gem 'guard-rails', require: false
+  gem 'guard-minitest', '~> 2.4', '>= 2.4.6'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
