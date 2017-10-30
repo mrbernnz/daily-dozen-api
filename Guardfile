@@ -21,7 +21,7 @@ end
 
 guard :minitest, cli: '-f -d' do
   watch(%r{^test/(.*)\/?_test(.*)\.rb$})
-  watch(%r{^app/controllers/(?<path>.+)\.rb$})     { |m| "test/#{m[:path]}_test.rb" }
-  watch(%r{^app/models/(?<path>.+)\.rb$})     { |m| "test/#{m[:path]}_test.rb" }
+  watch(%r{^app/controllers/(?<path>.+)\.rb$})     { |m| "test/controllers/#{m[:path]}_test.rb" }
+  watch(%r{^app/models/(?<path>.+)\.rb$})     { |m| "test/models/#{m[:path]}_test.rb" }
   watch(%r{^test/test_helper\.rb$})      { 'test' }
 end
