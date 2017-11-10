@@ -9,16 +9,21 @@ You will need the following properly installed on your computer.
 ## Ruby version
 2.4.2
 
-## System dependencies
+## TODO
+- [ ] Finishing writing up README.
+- [ ] Deploy App
+- [ ] Connect to Client App
 
-## Configuration
+<!-- ## System dependencies -->
 
-## Database creation
+<!-- ## Configuration -->
 
-## Database initialization
+<!-- ## Database creation -->
 
-## How to run the test suite
+<!-- ## Database initialization -->
 
-## Services (job queues, cache servers, search engines, etc.)
+<!-- ## How to run the test suite -->
 
-## Deployment instructions
+<!-- ## Services (job queues, cache servers, search engines, etc.) -->
+
+<!-- ## Deployment instructions -->
