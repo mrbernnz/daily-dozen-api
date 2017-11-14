@@ -1,9 +1,20 @@
 language: ruby
+bundler_args: --without production
 cache: bundler
+services:
+  - postgresql
 env:
+  global:
   - DB=postgresql
+  - CC_TEST_REPORTER_ID=8938d99c071bc6c279e944a21950a32434dd769b3c24e667fe137746f910730c
+before_script:
+  # - psql -c 'create database dailydozen_api_test;' -U postgres
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 script:
   - RAILS_ENV=test bundle exec rake db:create
   - RAILS_ENV=test bundle exec rake db:migrate
-  - bundle exec rake test
-
+  - RAILS_ENV=test bundle exec rake test
+after_script:
+  if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
