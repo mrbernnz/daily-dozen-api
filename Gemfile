@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+ruby '2.4.2'
 
 gem 'rails', '~> 5.1.4'
 gem 'pg', '~> 0.18'
@@ -27,7 +28,6 @@ group :development do
   gem 'spring', '~> 2.0', '>= 2.0.2'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry'
-  gem 'faker', '~> 1.8', '>= 1.8.4'
   gem 'guard', '~> 2.14', '>= 2.14.1'
   gem 'guard-rails', require: false
   gem 'guard-minitest', '~> 2.4', '>= 2.4.6'
