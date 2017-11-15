@@ -17,6 +17,10 @@ class ActiveSupport::TestCase
 
   fixtures :all
 
-  Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
+  Minitest::Reporters.use!(
+    Minitest::Reporters::ProgressReporter.new,
+    ENV,
+    Minitest.backtrace_filter
+  )
   include FactoryBot::Syntax::Methods
 end
