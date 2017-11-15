@@ -1,10 +1,12 @@
 require 'simplecov'
-SimpleCov.start 'rails' do
-  add_filter 'app/controllers/'
-  add_filter 'app/channels/'
-  add_filter 'app/jobs/'
-  add_filter 'app/mailers/'
-  SimpleCov.minimum_coverage 90
+unless  ENV['NO_COVERAGE']
+  SimpleCov.start 'rails' do
+    add_filter 'app/controllers/'
+    add_filter 'app/channels/'
+    add_filter 'app/jobs/'
+    add_filter 'app/mailers/'
+    SimpleCov.minimum_coverage 90
+  end
 end
 
 require File.expand_path('../../config/environment', __FILE__)
