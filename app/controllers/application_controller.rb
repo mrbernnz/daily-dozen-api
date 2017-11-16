@@ -1,13 +1,6 @@
 class ApplicationController < ActionController::API
   include ActionController::HttpAuthentication::Token::ControllerMethods
-
-  # rescue_from StandardError do |e|
-  #   logger.debug 'rescue_from api_controller'
-  #   logger.debug e.message, :error
-  #   logger.debug e.backtrace, :error
-  #   render json: { error: e.message }, status: :internal_server_error
-  # end
-
+  include ExceptionHandler
   include AuthHelper
 
   before_action :authenticate

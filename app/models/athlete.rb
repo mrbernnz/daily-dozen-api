@@ -1,5 +1,4 @@
 class Athlete < ApplicationRecord
-  # include ActiveModel::ForbidenAttributesProtection
   include ActiveModel::SecurePassword
   has_secure_password
 
