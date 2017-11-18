@@ -2,7 +2,7 @@ require 'test_helper'
 
 class AthleteTest < ActiveSupport::TestCase
   def setup
-    @athlete = create(:athlete)
+    @athlete = build(:athlete)
   end
 
   test 'valid user' do
@@ -10,8 +10,8 @@ class AthleteTest < ActiveSupport::TestCase
   end
 
   test 'an athlete has workouts' do
-    workouts = create(:athlete_with_workouts).workouts.length
-    assert_equal workouts, 5
+    workouts_count = build(:athlete_with_workouts).workouts.length
+    assert_equal 5, workouts_count
   end
 
   test 'invalid without name' do

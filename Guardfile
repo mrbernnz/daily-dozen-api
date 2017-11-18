@@ -14,12 +14,13 @@
 # zeus: false                          # enables zeus gem.
 # CLI: 'rails server'                  # customizes runner command. Omits all options except `pid_file`!
 
-guard :rails do
+# guard :rails, CLI: 'rails server -b "ssl://localhost:4000?key=/Users/mrbernz/.ssh/server.key&cert=/Users/mrbernz/.ssh/server.crt"' do
+guard :rails, port: ENV['PORT'] do
   watch('Gemfile.lock')
   watch(%r{^(config|lib)/.*})
 end
 
-guard :minitest,  spring: true, env: { 'NO_COVERAGE' => 'true' }, cli: '-f -d' do
+guard :minitest,  spring: true, env: { 'NO_COVERAGE' => 'true' }, CLI: 'rails test -f -d' do
   watch(%r{^test/(.*)\/?_test(.*)\.rb$})
   watch(%r{^app/controllers/(?<path>.+)\.rb$})     { |m| "test/controllers/#{m[:path]}_test.rb" }
   watch(%r{^app/models/(?<path>.+)\.rb$})     { |m| "test/models/#{m[:path]}_test.rb" }

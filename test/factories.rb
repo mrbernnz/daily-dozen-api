@@ -1,14 +1,17 @@
 FactoryBot.define do
   factory :athlete do
-    first_name 'Jon'
-    last_name 'Doe'
+    first_name Faker::Name.first_name
+    last_name Faker::Name.last_name
+    email Faker::Internet.email
+    password 'password'
+    token Faker::Crypto.sha1
 
     factory :athlete_with_workouts do
       transient do
         workouts_count 5
       end
 
-      after(:create) do |athlete, evaluator|
+      after(:build) do |athlete, evaluator|
         create_list(:workout, evaluator.workouts_count, athlete: athlete)
       end
     end

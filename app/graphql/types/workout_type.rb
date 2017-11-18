@@ -4,4 +4,5 @@ Types::WorkoutType = GraphQL::ObjectType.define do
 
   field :id, !types.Int
   field :workoutName, !types.String, property: :workout_name
+  field :athlete, Types::AthleteType, 'Owner'
 end
