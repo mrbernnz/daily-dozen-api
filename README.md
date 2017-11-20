@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/mrbernnz/dailyDozenAPI.svg?branch=master)](https://travis-ci.org/mrbernnz/dailyDozenAPI)
+[![Build Status](https://travis-ci.org/mrbernnz/dailyDozenAPI.svg?branch=master)](https://travis-ci.org/mrbernnz/dailyDozenAPI) [![Test Coverage](https://api.codeclimate.com/v1/badges/2a8fea35c6db4d5269f5/test_coverage)](https://codeclimate.com/github/mrbernnz/dailyDozenAPI/test_coverage) [![Known Vulnerabilities](https://snyk.io/test/github/mrbernnz/dailyDozenAPI/badge.svg)](https://snyk.io/test/github/mrbernnz/dailyDozenAPI)
 
 # DailyDozen API
 
