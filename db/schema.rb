@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171118024611) do
+ActiveRecord::Schema.define(version: 20171121164641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20171118024611) do
 
   create_table "exercises", force: :cascade do |t|
     t.bigint "workout_id"
-    t.string "exercise_name"
+    t.string "exercise_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["workout_id"], name: "index_exercises_on_workout_id"
@@ -35,19 +35,19 @@ ActiveRecord::Schema.define(version: 20171118024611) do
 
   create_table "sets", force: :cascade do |t|
     t.bigint "exercise_id"
-    t.integer "number"
-    t.integer "weight"
-    t.string "unit"
-    t.integer "rep"
+    t.integer "number", null: false
+    t.integer "weight", null: false
+    t.string "unit", null: false
+    t.integer "rep", null: false
     t.index ["exercise_id"], name: "index_sets_on_exercise_id"
   end
 
   create_table "workouts", force: :cascade do |t|
     t.bigint "athlete_id"
     t.string "workout_name", null: false
-    t.date "date"
-    t.time "start_time"
-    t.time "end_time"
+    t.date "day", null: false
+    t.time "start", null: false
+    t.time "finish", null: false
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
