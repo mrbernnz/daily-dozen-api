@@ -16,6 +16,8 @@ gem 'rack-cors'
 # gem 'redis', '~> 3.0'
 # gem 'capistrano-rails', group: :development
 
+gem 'graphql', '~> 1.7', '>= 1.7.4'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'faker', '~> 1.8', '>= 1.8.4'
@@ -37,5 +39,3 @@ gem 'simplecov', :require => false, :group => :test
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem 'graphql', '~> 1.7', '>= 1.7.4'
