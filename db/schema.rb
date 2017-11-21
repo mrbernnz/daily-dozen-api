@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 20171118024611) do
     t.string "last_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", null: false
-    t.string "password_digest", null: false
-    t.string "token", null: false
+    t.string "email"
+    t.string "password_digest"
+    t.string "token"
   end
 
   create_table "exercises", force: :cascade do |t|
