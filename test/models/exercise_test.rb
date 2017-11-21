@@ -9,7 +9,10 @@ class ExerciseTest < ActiveSupport::TestCase
     assert @exercise.new_record?
   end
 
-  test 'a presence of a exercise title' do
-    assert_equal @exercise.exercise_name, 'Bench Press'
+  test 'invalid exercise without title' do
+    @exercise.exercise_name = nil
+
+    refute @exercise.valid?
+    assert_not_nil @exercise.errors[:exercise_name], 'no validation error for title of exercise'
   end
 end
