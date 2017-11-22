@@ -5,11 +5,10 @@ class AthleteTest < ActiveSupport::TestCase
     @athlete = build(:athlete)
   end
 
-  test 'valid athlete' do
+  def test_valid_athlete
     assert @athlete.valid?
   end
 
-  # Validattions
   %W[first_name last_name email password_digest].each do |attribute|
     test "invalid without #{attribute}" do
       @athlete[attribute] = nil

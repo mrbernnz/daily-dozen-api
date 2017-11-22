@@ -5,7 +5,7 @@ class WorkoutTest < ActiveSupport::TestCase
     @workout = build(:workout)
   end
 
-  test 'workout for an athlete is created' do
+  def test_workout_for_an_athlete_is_created
     assert @workout.new_record?
   end
 

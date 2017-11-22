@@ -5,11 +5,15 @@ class ExerciseTest < ActiveSupport::TestCase
     @exercise = build(:exercise)
   end
 
-  test 'exercise created' do
+  def test_exercise_created
     assert @exercise.new_record?
   end
 
-  test 'invalid exercise without title' do
+  def test_exercise_has_title
+    assert_respond_to @exercise, :exercise_name
+  end
+
+  def test_invalid_exercise_without_title
     @exercise.exercise_name = nil
 
     refute @exercise.valid?

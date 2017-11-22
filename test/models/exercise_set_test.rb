@@ -5,7 +5,7 @@ class ExerciseSetTest < ActiveSupport::TestCase
     @set = build(:exercise_set)
   end
 
-  test 'set created' do
+  def test_set_created
     assert @set.new_record?
   end
 
