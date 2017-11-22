@@ -20,9 +20,10 @@ guard :rails, port: ENV['PORT'] do
   watch(%r{^(config|lib)/.*})
 end
 
-guard :minitest,  spring: true, CLI: 'rails test -f -d' do
-  watch(%r{^test/(.*)\/?_test(.*)\.rb$})
+guard :minitest,  spring: true do
   watch(%r{^app/controllers/(?<path>.+)\.rb$})     { |m| "test/controllers/#{m[:path]}_test.rb" }
   watch(%r{^app/models/(?<path>.+)\.rb$})     { |m| "test/models/#{m[:path]}_test.rb" }
+  watch(%r{^test/(.*)\/?_test(.*)\.rb$})
+  watch(%r{^test/factories\.rb$})       { 'test' }
   watch(%r{^test/test_helper\.rb$})      { 'test' }
 end

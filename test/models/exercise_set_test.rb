@@ -5,14 +5,16 @@ class ExerciseSetTest < ActiveSupport::TestCase
     @set = build(:exercise_set)
   end
 
-  test 'set created' do
+  def test_set_created
     assert @set.new_record?
   end
 
-  test 'a valid set' do
-    assert_equal @set.number, 1
-    assert_equal @set.weight, 135
-    assert_equal @set.unit, 'lb'
-    assert_equal @set.rep, 1
+  %W[number weight unit rep].each do |attribute|
+    test "invalid set without #{attribute}" do
+      @set[attribute] = nil
+
+      refute @set.valid?
+      assert_not_nil @set.errors[attribute], "no validation error for #{attribute} of set"
+    end
   end
 end

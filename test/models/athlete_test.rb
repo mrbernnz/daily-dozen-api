@@ -5,21 +5,16 @@ class AthleteTest < ActiveSupport::TestCase
     @athlete = build(:athlete)
   end
 
-  test 'valid user' do
+  def test_valid_athlete
     assert @athlete.valid?
   end
 
-  test 'an athlete has workouts' do
-    workouts_count = build(:athlete_with_workouts).workouts.length
-    assert_equal 5, workouts_count
-  end
+  %W[first_name last_name email password_digest].each do |attribute|
+    test "invalid without #{attribute}" do
+      @athlete[attribute] = nil
 
-  test 'invalid without name' do
-    @athlete.first_name = nil
-    @athlete.last_name = nil
-
-    refute_nil @athlete.first_name?
-    assert_not_nil @athlete.errors[:first_name]
-    assert_not_nil @athlete.errors[:last_name]
+      refute @athlete.valid?, "saved athlete without #{attribute}"
+      assert_not_nil @athlete.errors[attribute], "no validation error for #{attribute}"
+    end
   end
 end

@@ -5,12 +5,16 @@ class WorkoutTest < ActiveSupport::TestCase
     @workout = build(:workout)
   end
 
-  test 'workout created' do
+  def test_workout_for_an_athlete_is_created
     assert @workout.new_record?
   end
 
-  test 'a valid workout' do
-    assert_equal @workout.workout_name, 'Chest and Biceps'
-    assert_equal @workout.notes, 'Great workout today!'
+  %W[workout_name day start finish].each do |attribute|
+    test "invalid workout without #{attribute}" do
+      @workout[attribute] = nil
+
+      refute @workout.valid?
+      assert_not_nil @workout.errors[attribute], "no validation error for #{attribute} of workout"
+    end
   end
 end

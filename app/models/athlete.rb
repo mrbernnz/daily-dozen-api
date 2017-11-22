@@ -8,11 +8,9 @@ class Athlete < ApplicationRecord
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  validates :first_name, :last_name, presence: true
-  validates :email, presence: true,
-    format: { with: VALID_EMAIL_REGEX },
+  validates_presence_of :first_name, :last_name, :email, :password_digest
+  validates :email, format: { with: VALID_EMAIL_REGEX },
     uniqueness: { case_sensitive: false }
-  validates :password_digest, presence: true
 
     def sign_in(password)
       if authenticate(password)
