@@ -26,8 +26,9 @@ group :development, :test do
 end
 
 group :development do
-  gem 'rubocop', '~> 0.51.0', require: false
+  gem 'rails-erd', '~> 1.5', '>= 1.5.2', require: false
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'rubocop', '~> 0.51.0', require: false
   gem 'spring', '~> 2.0', '>= 2.0.2'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry-rails', '~> 0.3.6'
