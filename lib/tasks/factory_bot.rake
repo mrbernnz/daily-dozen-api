@@ -6,7 +6,7 @@ namespace :factory_bot do
         FactoryBot.lint
       end
     else
-      system("bundle exec rake factory_bot:lint rails_env='test'")
+      system("RAILS_ENV='test' bundle exec rake factory_bot:lint")
       exit $?.exitstatus
     end
   end
