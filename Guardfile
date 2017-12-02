@@ -22,6 +22,7 @@ end
 
 guard :minitest, spring: true do
   watch(%r{^app/controllers/(?<path>.+)\.rb$})     { |m| "test/controllers/#{m[:path]}_test.rb" }
+  watch(%r{^app/graphql/(?<path>.+)\.rb$})     { |m| "test/graphql/#{m[:path]}_test.rb" }
   watch(%r{^app/models/(?<path>.+)\.rb$})     { |m| "test/models/#{m[:path]}_test.rb" }
   watch(%r{^test/(.*)\/?_test(.*)\.rb$})
   watch(%r{^test/factories\.rb$})       { 'test' }
